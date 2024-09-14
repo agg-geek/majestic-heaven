@@ -4,9 +4,7 @@ import Logo from '@/app/_components/Logo';
 export default function AppPage() {
 	return (
 		<div>
-			<Logo />
-			<h1>Hello World</h1>
-			<Link href="/cabins">Explore cabins</Link>
+			<h1>Home page</h1>
 		</div>
 	);
 }
