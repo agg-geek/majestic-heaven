@@ -1,5 +1,12 @@
 import '@/app/globals.css';
 
+import { Josefin_Sans } from 'next/font/google';
+
+const josefinFont = Josefin_Sans({
+	subsets: ['latin'],
+	display: 'swap',
+});
+
 export const metadata = {
 	title: {
 		template: '%s | Majestic Heaven',
@@ -11,7 +18,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body>{children}</body>
+			<body className={josefinFont.className}>{children}</body>
 		</html>
 	);
 }
