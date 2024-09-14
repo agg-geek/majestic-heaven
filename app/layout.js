@@ -1,7 +1,11 @@
 import '@/app/globals.css';
 
 export const metadata = {
-	title: 'Majestic Heaven',
+	title: {
+		template: '%s | Majestic Heaven',
+		default: 'Majestic Heaven',
+	},
+	description: 'Luxurious hotel located in the beautiful Kashmir valley',
 };
 
 export default function RootLayout({ children }) {
