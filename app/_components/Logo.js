@@ -1,6 +1,8 @@
+import Link from 'next/link';
+
 export default function Logo() {
 	return (
-		<a href="/" className="flex items-center gap-4 z-10">
+		<Link href="/" className="flex items-center gap-4 z-10">
 			<img
 				src="/logo.png"
 				height="60"
@@ -10,6 +12,6 @@ export default function Logo() {
 			<span className="text-xl font-semibold text-primary-100">
 				The Majestic Heaven
 			</span>
-		</a>
+		</Link>
 	);
 }

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Logo from './_components/Logo';
+import Logo from '@/app/_components/Logo';
 
 export default function AppPage() {
 	return (
