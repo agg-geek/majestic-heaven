@@ -79,13 +79,6 @@ export default async function CabinPage({ params }) {
 					Reserve {name} today. Pay on arrival.
 				</h2>
 
-				{/* to implement DateSelector and ReservationForm, we need the cabin, 
-					bookings (to block dateselector dates for which cabin is already booked)
-					and supabase table 'settings' to get min, maxBookingLength 
-					both these components should be client components as they have state
-					instead of blocking this page by first fetching this date and then rendering the page,
-					create a component that fetches the data and streams whatever things are available */}
-
 				<Suspense fallback={<Spinner />}>
 					<Reservation cabin={cabin} />
 				</Suspense>
