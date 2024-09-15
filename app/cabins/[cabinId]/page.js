@@ -1,7 +1,10 @@
+import { Suspense } from 'react';
 import Image from 'next/image';
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
 import { getCabin, getCabins } from '@/app/_lib/data-service';
 import TextExpander from '@/app/_components/TextExpander';
+import Reservation from '@/app/_components/Reservation';
+import Spinner from '@/app/_components/Spinner';
 
 export async function generateMetadata({ params }) {
 	const { name } = await getCabin(params.cabinId);
@@ -72,9 +75,20 @@ export default async function CabinPage({ params }) {
 			</div>
 
 			<div>
-				<h2 className="text-5xl font-semibold text-center">
-					Reserve today. Pay on arrival.
+				<h2 className="text-5xl font-semibold text-center mb-10 text-accent-400">
+					Reserve {name} today. Pay on arrival.
 				</h2>
+
+				{/* to implement DateSelector and ReservationForm, we need the cabin, 
+					bookings (to block dateselector dates for which cabin is already booked)
+					and supabase table 'settings' to get min, maxBookingLength 
+					both these components should be client components as they have state
+					instead of blocking this page by first fetching this date and then rendering the page,
+					create a component that fetches the data and streams whatever things are available */}
+
+				<Suspense fallback={<Spinner />}>
+					<Reservation cabin={cabin} />
+				</Suspense>
 			</div>
 		</div>
 	);

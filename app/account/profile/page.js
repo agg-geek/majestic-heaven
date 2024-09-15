@@ -21,9 +21,6 @@ export default function ProfilePage() {
 				process faster and smoother. See you soon!
 			</p>
 
-			{/* SelectCountry remains a server component
-				and UpdateProfileForm is a client component as reqd */}
-
 			<UpdateProfileForm>
 				<SelectCountry
 					name="nationality"

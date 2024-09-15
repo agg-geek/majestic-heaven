@@ -1,15 +1,6 @@
 'use client';
 
-import { useState } from 'react';
-
-// SERVER COMPONENTS IN CLIENT COMPONENTS
-// the form component will require state later on
-// hence make it a client component now
-// currently implement SelectCountry
 function UpdateProfileForm({ children }) {
-	// useState just for demonstration to make form a client comp.
-	const [count, setCount] = useState();
-
 	// CHANGE
 	const countryFlag = 'pt.jpg';
 	const nationality = 'portugal';
