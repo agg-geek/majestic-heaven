@@ -1,5 +1,3 @@
-// important to mark this as client component as hook is being used
-// (a webpack error was thrown without this)
 'use client';
 
 import { format } from 'date-fns';

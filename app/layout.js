@@ -27,12 +27,6 @@ export default function RootLayout({ children }) {
 
 				<div className="flex-1 px-8 py-12 grid">
 					<main className="max-w-7xl mx-auto w-full">
-						{/* we provide this ReservationProvider here as we implement ReservationReminder
-							also, when user selects a date for a cabin and goes back and selects another cabin,
-							the dates will be stored in the context itself (hence again use context)
-							also, the provider is a client component but the children are server components
-							this will work as the children will have already been rendered so this 
-							server comp. inside client comp. is okay */}
 						<ReservationProvider>{children}</ReservationProvider>
 					</main>
 				</div>
