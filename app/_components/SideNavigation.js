@@ -6,7 +6,6 @@ import {
 import Link from 'next/link';
 import SignOutButton from '@/app/_components/SignOutButton';
 
-// dynamically generating a navigation
 const navLinks = [
 	{
 		name: 'Home',

@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-// 1. works in pages like /random-page (the URL directly was not found)
 export default function NotFound() {
 	return (
 		<main className="text-center space-y-6 mt-4">

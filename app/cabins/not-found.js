@@ -1,10 +1,5 @@
 import Link from 'next/link';
 
-// personalised not found for cabinId page
-// needs to be manually called otherwise getting the cabin from supabase
-// will return null and the cabinId page will try to read from null
-// so error.js will be shown instead of not-found.js
-// hence suitably call this notfound in the data-service.js
 export default function CabinNotFound() {
 	return (
 		<main className="text-center space-y-6 mt-4">
