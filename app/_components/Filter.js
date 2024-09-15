@@ -2,11 +2,6 @@
 
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 
-// PASSING STATE FROM CLIENT TO SERVER COMPONENTS USING URL
-// this is a client component where the state lives
-// once we change the filter to lets say small cabins
-// we need to pass this to the server component so add it to the URL
-
 export default function Filter() {
 	const searchParams = useSearchParams();
 	const router = useRouter();

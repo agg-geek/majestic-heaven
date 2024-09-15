@@ -1,6 +1,10 @@
 import { getCountries } from '@/app/_lib/data-service';
 
 // Let's imagine your colleague already built this component 😃
+// Since we are fetching data in this function and since it already works
+// let's not change this component to a client component
+// so SelectCountry is a server component being IMPORTED inside the form
+// where the form is a client component
 
 async function SelectCountry({ defaultCountry, name, id, className }) {
 	const countries = await getCountries();
