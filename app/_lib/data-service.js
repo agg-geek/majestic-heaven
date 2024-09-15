@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { eachDayOfInterval } from 'date-fns';
 import { supabase } from './supabase';
 
@@ -16,6 +17,10 @@ export async function getCabin(id) {
 
 	if (error) {
 		console.error(error);
+
+		// 2. will not work directly for /cabins/0
+		// (supabase won't find cabinId 0 and an error will be shown instead)
+		notFound();
 	}
 
 	return data;

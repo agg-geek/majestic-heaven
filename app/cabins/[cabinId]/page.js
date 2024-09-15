@@ -40,9 +40,7 @@ export default async function CabinPage({ params }) {
 								For up to{' '}
 								<span className="font-bold">
 									{' '}
-									{/* {maxCapacity}{' '} */}
-									{/* creating error manually */}
-									{maxCapacity.max.min}{' '}
+									{maxCapacity}{' '}
 								</span>{' '}
 								guests
 							</span>
