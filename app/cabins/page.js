@@ -2,14 +2,6 @@ import { Suspense } from 'react';
 import CabinList from '@/app/_components/CabinList';
 import Spinner from '@/app/_components/Spinner';
 
-// i am using npm run prod which creates a prod build where caching works
-// (caching does not work in development build)
-// changing the price of the cabin on supabase will not update it
-// hence use revalidate to set the time after which server refetches the data
-// export const revalidate = 0; // always refetches data
-
-// since always refetching is not reqd either, use ISR
-// which will refetch the data periodically (every hour)
 export const revalidate = 3600;
 
 export const metadata = {

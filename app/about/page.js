@@ -1,11 +1,16 @@
 import Image from 'next/image';
 import image1 from '@/public/about-1.jpg';
+import { getCabins } from '@/app/_lib/data-service';
+
+export const revalidate = 86400;
 
 export const metadata = {
 	title: 'About us',
 };
 
-export default function AboutPage() {
+export default async function AboutPage() {
+	const cabins = await getCabins();
+
 	return (
 		<div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
 			<div className="col-span-3">
@@ -23,11 +28,11 @@ export default function AboutPage() {
 						simple pleasures with family.
 					</p>
 					<p>
-						Our 8 luxury cabins provide a cozy base, but the real
-						freedom and peace you'll find in the surrounding
-						mountains. Wander through lush forests, breathe in the
-						fresh air, and watch the stars twinkle above from the
-						warmth of a campfire or your hot tub.
+						Our {cabins.length} luxury cabins provide a cozy base,
+						but the real freedom and peace you'll find in the
+						surrounding mountains. Wander through lush forests,
+						breathe in the fresh air, and watch the stars twinkle
+						above from the warmth of a campfire or your hot tub.
 					</p>
 					<p>
 						This is where memorable moments are made, surrounded by
@@ -38,18 +43,12 @@ export default function AboutPage() {
 			</div>
 
 			<div className="col-span-2">
-				{/* a statically imported image does not require width and height
-				and MIGHT fit without additional properties like fill, object-cover etc  */}
 				<Image
 					src={image1}
 					alt="Family sitting around a fire pit in front of cabin"
 				/>
 			</div>
 
-			{/* if an image cannot be statically imported, like getting the image from a URL
-				then width and height are reqd, or make it fit inside a container
-				Notice that it requires adding properties "relative aspect-square"
-				to the parent div as well */}
 			<div className="relative aspect-square col-span-2">
 				<Image
 					src="/about-2.jpg"
