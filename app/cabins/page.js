@@ -2,6 +2,16 @@ import { Suspense } from 'react';
 import CabinList from '@/app/_components/CabinList';
 import Spinner from '@/app/_components/Spinner';
 
+// i am using npm run prod which creates a prod build where caching works
+// (caching does not work in development build)
+// changing the price of the cabin on supabase will not update it
+// hence use revalidate to set the time after which server refetches the data
+// export const revalidate = 0; // always refetches data
+
+// since always refetching is not reqd either, use ISR
+// which will refetch the data periodically (every hour)
+export const revalidate = 3600;
+
 export const metadata = {
 	title: 'All cabins',
 };
@@ -21,11 +31,6 @@ export default function CabinsPage() {
 				for a peaceful, calm vacation. Welcome to paradise.
 			</p>
 
-			{/* the loading.js in cabins will block the complete cabins page
-				since the above cabins page desc can be shown without a loader
-				use a supsense for the cabinlist
-				this suspense will override the global loading.js with Spinner
-				for the cabinlist component */}
 			<Suspense fallback={<Spinner />}>
 				<CabinList />
 			</Suspense>
