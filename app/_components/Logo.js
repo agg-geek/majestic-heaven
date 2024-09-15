@@ -4,7 +4,7 @@ import Link from 'next/link';
 // import image so you can choose to leave the width and height properties
 // this way, additional properties like quality can be specified
 // as next.js already knows beforehand about the image
-import { logo } from '@/public/logo.png';
+import logo from '@/public/logo.png';
 
 export default function Logo() {
 	return (
