@@ -12,7 +12,7 @@ export default async function CabinList({ filter }) {
 			filter === 'all' ||
 			(filter === 'small' && maxCapacity >= 1 && maxCapacity <= 3) ||
 			(filter === 'medium' && maxCapacity >= 4 && maxCapacity <= 7) ||
-			(filter === 'large' && maxCapacity >= 8 && maxCapacity <= 10)
+			(filter === 'large' && maxCapacity >= 8 && maxCapacity <= 12)
 		) {
 			return true;
 		}
