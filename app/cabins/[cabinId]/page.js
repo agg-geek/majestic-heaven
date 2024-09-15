@@ -2,10 +2,13 @@ import Image from 'next/image';
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from '@heroicons/react/24/solid';
 import { getCabin } from '@/app/_lib/data-service';
 
-export default async function CabinPage({ params }) {
-	// get the dynamic params
-	const { cabinId } = params;
+export async function generateMetadata({ params }) {
+	const { name } = await getCabin(params.cabinId);
+	return { title: `Cabin ${name}` };
+}
 
+export default async function CabinPage({ params }) {
+	const { cabinId } = params;
 	const cabin = await getCabin(cabinId);
 	const { name, maxCapacity, image: imageUrl, description } = cabin;
 
