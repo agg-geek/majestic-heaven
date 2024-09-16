@@ -1,11 +1,6 @@
 import { signOutAction } from '@/app/_lib/actions';
 import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/solid';
 
-// this signout button is called from SideNavigation which is a client comp.
-// so we can actually use an onclick in this signoutbutton
-// however, since we want to keep the auth flow completely on the server
-// we again use a form and server action
-// server actions can also be used in a client comp.
 export default function SignOutButton() {
 	return (
 		<form action={signOutAction}>
