@@ -62,9 +62,6 @@ export default function UpdateProfileForm({ guest, children }) {
 }
 
 function Button() {
-	// useFormStatus cannot be used in the component which has the form itself
-	// it can only be used in a componend rendered inside the form
-	// hence create this new Button comp. and use it inside the form
 	const { pending } = useFormStatus();
 
 	return (
