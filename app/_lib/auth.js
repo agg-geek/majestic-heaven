@@ -9,17 +9,17 @@ const authConfig = {
 		}),
 	],
 	callbacks: {
-		// return true if current user is authorized to go through
-		// auth is the current session
 		authorized({ auth, request }) {
 			return Boolean(auth?.user);
 		},
+	},
+	pages: {
+		signIn: '/login',
 	},
 };
 
 export const {
 	auth,
-	handlers: { GET, POST },
 	signIn,
-	signOut,
+	handlers: { GET, POST },
 } = NextAuth(authConfig);
