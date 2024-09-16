@@ -1,12 +1,11 @@
 'use client';
 
 import { updateGuestAction } from '@/app/_lib/actions';
+import { useFormStatus } from 'react-dom';
 
 export default function UpdateProfileForm({ guest, children }) {
 	const { fullName, email, nationality, nationalID, countryFlag } = guest;
 
-	// the form data will automatically be put in a formData using
-	// name and value and will be accessible by the server action
 	return (
 		<form
 			action={updateGuestAction}
@@ -56,10 +55,24 @@ export default function UpdateProfileForm({ guest, children }) {
 			</div>
 
 			<div className="flex justify-end items-center gap-6">
-				<button className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">
-					Update profile
-				</button>
+				<Button />
 			</div>
 		</form>
+	);
+}
+
+function Button() {
+	// useFormStatus cannot be used in the component which has the form itself
+	// it can only be used in a componend rendered inside the form
+	// hence create this new Button comp. and use it inside the form
+	const { pending } = useFormStatus();
+
+	return (
+		<button
+			disabled={pending}
+			className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
+		>
+			{pending ? 'Updating...' : 'Update profile'}
+		</button>
 	);
 }

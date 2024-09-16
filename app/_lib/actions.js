@@ -13,15 +13,8 @@ export async function signOutAction() {
 }
 
 export async function updateGuestAction(formData) {
-	// console.log(formData);
-	// nationality: 'Bahamas%https://flagcdn.com/bs.svg',
-	// nationalID: '123456'
-
-	// we are on the server right now, and first authorize and check everything
 	const session = await auth();
 
-	// do not use try catch in a server action, just directly throw errors
-	// they will be caught by the error.js
 	if (!session) throw new Error('You must be logged in');
 
 	const nationalID = formData.get('nationalID');
