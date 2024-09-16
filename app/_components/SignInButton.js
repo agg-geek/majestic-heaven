@@ -1,8 +1,3 @@
-// we keep the whole authentication flow on the server itself
-// for signin, we don't want to add an onclick to the below button
-// (onclick will only work in client component)
-// hence use server action (see actions.js)
-
 import { signInAction } from '@/app/_lib/actions';
 
 export default function SignInButton() {

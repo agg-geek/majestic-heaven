@@ -2,12 +2,6 @@ import { auth } from '@/app/_lib/auth';
 import Link from 'next/link';
 
 export default async function Navigation() {
-	// go to /api/auth/signin to signin via Google
-	// use /api/auth/signout to signout
-	// auth() will give the currently logged in user
-
-	// auth() will use cookies and since this Navigation is present in all routes
-	// all the routes are now dynamic
 	const session = await auth();
 
 	return (
